@@ -1,3 +1,4 @@
+%MATLAB程序
 fid=fopen('yuanzhu2.stl', 'r');%创建一个STL文件，放在与此脚本同目录的文件夹下，文件名yuanzhu2.stl改为新的文件名
 V=0;    vnum=0;    report_num=0;    STLxyz=0;
 while feof(fid) == 0    %文件指针到达文件末尾时返回真值            
