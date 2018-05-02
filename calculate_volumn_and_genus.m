@@ -37,5 +37,3 @@ fprintf('The number of the edge is: %d.\n',edge);
 %计算孔的个数：
 genus=(2-vertex+edge-face)/2;
 fprintf('The number of the genus is: %d.\n',genus);
-
-        
