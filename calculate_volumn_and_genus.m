@@ -1,3 +1,4 @@
+clear;clc;
 fid=fopen('test.stl', 'r');%创建一个STL文件，文件名test.stl
 V=0;    vnum=0;    report_num=0;    STLxyz=0;
 %读取数据
