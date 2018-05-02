@@ -1,11 +1,11 @@
-fid=fopen('test.stl', 'r');%´´½¨Ò»¸öSTLÎÄ¼ş£¬ÎÄ¼şÃûtest.stl
+fid=fopen('test.stl', 'r');%åˆ›å»ºä¸€ä¸ªSTLæ–‡ä»¶ï¼Œæ–‡ä»¶åtest.stl
 V=0;    vnum=0;    report_num=0;    STLxyz=0;
-%¶ÁÈ¡Êı¾İ
-while feof(fid) == 0    %ÎÄ¼şÖ¸Õëµ½´ïÎÄ¼şÄ©Î²Ê±·µ»ØÕæÖµ            
-      tline = fgetl(fid);   % tline»ñµÃ¶ÁÈ¡µ½µÄÎÄ¼şÄÚÈİµÄÒ»ĞĞ×Ö·û´®
-      fword = sscanf(tline, '%s');  %´Ó»ñµÃµÄÒ»ĞĞ×Ö·û´®ÖĞÌáÈ¡×Ö·ûĞÍÊı
-if strncmpi(fword, 'vertex',6) == 1;   %¶ÁÈ¡×ø±ê,Èç¹ûÖ¸ÕëËùÖ¸µØÖ·ÄÚÈİÎªvertex£¬Âß¼­Îª1
-      STLxyz= sscanf(tline, '%*s %lf %lf %lf');%¶ÁÈ¡¸¡µãÊıÊı¾İ´¢´æµ½STLxyz,°´ÕÕÁĞ´æ´¢
+%è¯»å–æ•°æ®
+while feof(fid) == 0    %æ–‡ä»¶æŒ‡é’ˆåˆ°è¾¾æ–‡ä»¶æœ«å°¾æ—¶è¿”å›çœŸå€¼            
+      tline = fgetl(fid);   % tlineè·å¾—è¯»å–åˆ°çš„æ–‡ä»¶å†…å®¹çš„ä¸€è¡Œå­—ç¬¦ä¸²
+      fword = sscanf(tline, '%s');  %ä»è·å¾—çš„ä¸€è¡Œå­—ç¬¦ä¸²ä¸­æå–å­—ç¬¦å‹æ•°
+if strncmpi(fword, 'vertex',6) == 1;   %è¯»å–åæ ‡,å¦‚æœæŒ‡é’ˆæ‰€æŒ‡åœ°å€å†…å®¹ä¸ºvertexï¼Œé€»è¾‘ä¸º1
+      STLxyz= sscanf(tline, '%*s %lf %lf %lf');%è¯»å–æµ®ç‚¹æ•°æ•°æ®å‚¨å­˜åˆ°STLxyz,æŒ‰ç…§åˆ—å­˜å‚¨
       vnum = vnum + 1; 
 end
     if  vnum~=report_num
@@ -14,7 +14,7 @@ end
     end
 end
 vout = v';  
-%¼ÆËãÌå»ı
+%è®¡ç®—ä½“ç§¯
 for i=1:3:vnum-2
     xi1=vout(i,1);     yi1=vout(i,2);     zi1=vout(i,3);
     xi2=vout(i+1,1);   yi2=vout(i+1,2);   zi2=vout(i+1,3);
@@ -23,44 +23,18 @@ for i=1:3:vnum-2
     V=V+vi;
 end
 fprintf('The volumn of the model is: %f mm3.\n',V);
-%¼ÆËãÃæfµÄ¸öÊı£º
+%è®¡ç®—é¢fçš„ä¸ªæ•°ï¼š
 face=vnum/3;
 fprintf('The number of the face is: %d.\n',face);
-%¼ÆËã²»ÖØºÏ¶¥µãµÄ¸öÊıvertex£º
+%è®¡ç®—ä¸é‡åˆé¡¶ç‚¹çš„ä¸ªæ•°vertexï¼š
 DV=unique(vout,'rows');
 [vertex,columns]=size(DV);
 fprintf('The number of the vertex is: %d.\n',vertex);
-%¼ÆËã²»ÖØºÏ±ßµÄ¸öÊıedge£º
+%è®¡ç®—ä¸é‡åˆè¾¹çš„ä¸ªæ•°edgeï¼š
 edge=vnum/2;
 fprintf('The number of the edge is: %d.\n',edge);
-%¼ÆËã¿×µÄ¸öÊı£º
+%è®¡ç®—å­”çš„ä¸ªæ•°ï¼š
 genus=(2-vertex+edge-face)/2;
 fprintf('The number of the genus is: %d.\n',genus);
 
-
-
-            
-            
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
